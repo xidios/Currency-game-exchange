@@ -53,7 +53,7 @@ namespace Currency_game_exchange
         private void Currency()
         {
             string line = "";
-            using (WebClient wc = new WebClient())
+            using (WebClient wc = new WebClient())//если все время показывает один и тот же курс, значит сайт упал
                 line = wc.DownloadString("https://www.profinance.ru/chart/usdrub/");
             Match match = Regex.Match(line, @"<td>(\d{2}[.].*?)</td>");
             NumberFormatInfo provider = new NumberFormatInfo();

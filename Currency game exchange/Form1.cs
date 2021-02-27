@@ -31,6 +31,9 @@ namespace Currency_game_exchange
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dayCount = 0;
+            bankRUB = 100000;
+            bankUSD = 100;
             CurrentBankStatus();
             chart1.Series[0].Points.Clear();
             Currency();
@@ -58,12 +61,13 @@ namespace Currency_game_exchange
         }
         private void CurrentBankStatus()
         {
-            Text = $"{dayCount}";
+            
             label2.Text = $"RUB: {bankRUB}";
             label3.Text = $"USD: {bankUSD}";
         }
         private void UpdateLabels()
         {
+            Text = $"{dayCount}";
             label1.Text = $"USD/RUB {currency}";
             chart1.Series[0].Points.AddXY(dayCount, currency);
         }
